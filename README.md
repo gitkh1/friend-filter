@@ -11,5 +11,7 @@
 
 ## Как запускать
 
+https://gitkh1.github.io/friend-filter/
+
 - `start` - запустить для локальной разработки
 - `build` - собрать проект в папку dist
