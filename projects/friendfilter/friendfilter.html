@@ -1,0 +1,189 @@
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  #app {
+    width: 100vw;
+    height: 100vh;
+    background-color: #E5E5E5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .friendsapp {
+    width: 70%;
+    height: 70%;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .friendsapp__title {
+    background-color: #FE8663;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .friendsapp__body {
+    overflow: hidden;
+  }
+
+  .friendsapp__filter {
+    background-color: #F0F0F0;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .filter__block {
+    flex: 1;
+    padding: 15px;
+  }
+
+  .filter__input {
+    width: 100%;
+    height: 26px;
+    border-radius: 40px;
+    outline: none;
+    border: 0;
+    padding-left: 28px;
+  }
+
+  .friendslist {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #fff;
+  }
+
+  .friendslist__list {
+    list-style-type: none;
+    height: 300px;
+    overflow-y: scroll;
+    border-right: 1px solid #F0F0F0;
+    padding: 0 20px;
+  }
+
+  .friendslist__all {
+    flex: 1;
+  }
+
+  .friendslist__best {
+    flex: 1;
+  }
+
+  .friendslist__title {
+    font-size: 12px;
+    font-weight: 500;
+    color: #505050;
+    border-bottom: 1px solid #F0F0F0;
+    padding: 12px 20px;
+  }
+
+  .friend {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    user-select: none;
+  }
+
+  .friend:hover {
+    background-color: #F0F0F0;
+    cursor: pointer;
+  }
+
+  .friend__img {
+    border-radius: 50%;
+    margin-right: 7px;
+    flex-shrink: 0;
+  }
+
+  .friend__name {
+    font-size: 12px;
+    font-weight: 500;
+    color: #505050;
+    flex: 1;
+  }
+
+  .friend__btn {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    border-right: 4px solid #C4C4C4;
+    border-top: 4px solid #C4C4C4;
+    transform: rotate(45deg);
+  }
+  .friendslist__best .friend__btn {
+    border: 0;
+    position: relative;
+  }
+  .friendslist__best .friend__btn::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 14px;
+    background-color: #C4C4C4;
+  }
+  .friendslist__best .friend__btn::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 14px;
+    background-color: #C4C4C4;
+    transform: rotate(90deg);
+  }
+
+  .friendsapp__bottom {
+    height: 45px;
+    background-color: #F0F0F0;
+  }
+</style>
+<div id="app">
+
+</div>
+<template id="friendsAppTemplate">
+  <div class="friendsapp">
+    <div class="friendsapp__title">Выберите друзей</div>
+    <div class="friendsapp__body">
+      <div class="friendsapp__filter filter">
+        <div class="filter__block">
+          <input type="text" class="filter__input" placeholder="Начните вводить имя друга" data="allfriendsfilter">
+        </div>
+        <div class="filter__block">
+          <input type="text" class="filter__input" placeholder="Начните вводить имя друга" data="bestfriendsfilter">
+        </div>
+      </div>
+      <div class="friendsapp__content friendslist">
+        <div class="friendslist__all">
+          <div class="friendslist__title">Ваши друзья</div>
+          <ul class="friendslist__list"></ul>
+        </div>
+        <div class="friendslist__best">
+          <div class="friendslist__title">Друзья в списке</div>
+          <ul class="friendslist__list"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="friendsapp__bottom"></div>
+  </div>
+</template>
+<template id="friend">
+  <li class="friendslist__item friend">
+    <img src="" class="friend__img">
+    <div class="friend__name"></div>
+    <div class="friend__btn"></div>
+  </li>
+</template>
